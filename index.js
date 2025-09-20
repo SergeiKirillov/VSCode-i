@@ -7,13 +7,13 @@ function sum(x=1,y=2){
 }   
 console.log(sum());
 
-const myfunc=(x=0,y=0)=>{
+const myfunc2=(x=0,y=0)=>{
     console.log("Hello World");
     let z;
     z=x+y;
     return z;
 }
-console.log(myfunc(10,20));
+console.log(myfunc2(10,20));
 
 const personOne = {
     name: "John",
@@ -62,4 +62,41 @@ console.log(newArray2);
 const newArray3 = newArray.map((value) => value );
 console.log(newArray3);
 
+//Promise
+console.log("Promise");
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .catch(error => console.error('Error fetching data:', error));
 
+//Async Await
+async function fetchData(url) {
+  try {
+    const response = await fetch(url);
+    return response.json();
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+const url = 'https://jsonplaceholder.typicode.com/todos/1';
+fetchData(url).then(data => console.log(data));
+
+
+//Архитектура Node.js ------------------------------------------------
+
+const fs = require('fs');
+
+/*
+//Блокирующие операции
+const data = fs.readFileSync('input.txt');
+console.log(data.toString());
+console.log("File read finished");
+*/
+
+//НЕБлокирующие операции
+fs.readFile('input.txt', 'utf8', (err, data) => {
+  if (err) throw err;
+  console.log(data.toString());
+});
+console.log("Continue...");
