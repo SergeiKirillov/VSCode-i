@@ -1,3 +1,77 @@
+const MyArray = [1,2,3,4,55];
+console.log(MyArray);
+const NewArray =MyArray.map(el => el+3);
+console.log(NewArray);
+
+
+//Operator
+const button = {
+    width: 200,
+    text: 'Buy'
+}
+console.table(button);
+
+const redButton = {
+    ...button, 
+    color: 'red'
+}
+console.table(redButton);
+
+//Destructuring
+const userProfile = {
+    name1: 'Vladilen',
+    commentsQty: 23,
+    isLoggedIn: false,
+}
+
+const{name1, commntQty} = userProfile;
+const{isLoggedIn} = userProfile;
+console.log(name1);
+console.log(isLoggedIn);
+
+
+const fruits = ['Apple', 'Banana'];
+const[fruitOne, fruitTwo] = fruits;
+console.log(fruitOne);
+console.log(fruitTwo);
+
+let value = 5;
+console.log(value >=0 ? value : -value);
+value = -4;
+console.log(value >=0 ? value : -value);
+
+
+//Классы
+class Comment {
+    constructor(text) {
+        this.text = text;
+        this.votesQty = 0;
+    }
+    upvote() {
+        this.votesQty += 1;
+    }
+}
+
+const firstComment = new Comment('First comment');
+console.log(firstComment);
+firstComment.upvote();
+console.log(firstComment); 
+
+//Расширение классов
+class ExtendedComment  extends Comment {
+    info(){
+        return `Comment: ${this.text} - ${this.votesQty} votes`;
+    }
+}
+const secondComment = new ExtendedComment('Second comment');
+secondComment.upvote();
+console.log(secondComment.info());
+secondComment.upvote();
+console.log(secondComment.info());
+
+// 
+
+
 let a=10;
 const b=20;
 
